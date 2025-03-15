@@ -16,9 +16,9 @@ export default function GeneralSettings() {
     return (
         <div>
             <h1 className='font-semibold'>Select Theme:</h1>
-            <select className='w-full border border-gray-300 rounded-md p-2 mt-2 outline-none' onChange={handleThemeChange} value={theme}>
+            <select className='w-full border border-gray-300 rounded-md p-2 mt-2 outline-none bg-black' onChange={handleThemeChange} value={theme}>
                 {Object.entries(themes).map(([key, theme]) => (
-                    <option key={key} value={key}>
+                    <option key={key} value={key} className='bg-black'>
                         {theme.name}
                     </option>
                 ))}
