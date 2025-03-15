@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Geist:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -8,6 +8,7 @@
 
 @theme {
   --font-bauhaus: 'ITCBauhaus', sans-serif;
+  --font-azeretmono: 'Azeret Mono', monospace;
 }
 
 body {
@@ -15,7 +16,6 @@ body {
 }
 
 .home_page {
-
   background: conic-gradient(from 135deg, #0D1B2A 20%, #2E865D);
   background-position: right;
 }
@@ -24,4 +24,90 @@ body {
   background: linear-gradient(to right, #0D1B2A 40%, #1B4332),
     radial-gradient(circle at right, #2E865D 10%, transparent 40%);
   background-blend-mode: overlay;
+}
+
+/* volume range styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #e2e4e7; /* Light gray track */
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* WebKit (Chrome, Safari) */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: #e2e4e7;
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  margin-top: -7px; /* Adjust to align thumb with track */
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  background: #e2e4e7;
+  border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+/* Edge */
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower,
+input[type="range"]::-ms-fill-upper {
+  background: #e2e4e7;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+/* gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient {
+  background: linear-gradient(-45deg, #0D1B2A, #2E5E4E, #0D1B2A);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
 }

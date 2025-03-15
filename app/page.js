@@ -1,5 +1,5 @@
-import EmailSubscription from "./components/email-subscription";
-import Header from "./components/header";
+import EmailSubscription from "./components/ui/email-subscription";
+import Header from "./components/shared/header";
 
 export default function Home() {
 

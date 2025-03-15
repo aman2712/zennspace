@@ -8,7 +8,7 @@ export function middleware(req) {
     return NextResponse.redirect(new URL("/mobile", req.url)); // Redirect mobile users to `/mobile`
   }
 
-  return NextResponse.next(); // Continue normal rendering for desktop users
+  return NextResponse.redirect(new URL("/pomodoro", req.url)); // Continue normal rendering for desktop users
 }
 
 export const config = {

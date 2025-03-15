@@ -1,3 +1,5 @@
+import { AppProvider } from "./context/AppContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
 
@@ -9,8 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="text-slate-200">
-        {children}
+      <body className="text-slate-200 bg-black">
+        <AppProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </AppProvider>
         <Analytics />
       </body>
     </html>
