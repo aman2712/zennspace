@@ -33,9 +33,9 @@ export default function SoundSettings() {
                 <p className='text-gray-200'>New lo-fi music channels coming soon!</p>
             </div>
             <h1 className='font-semibold'>Choose alert sound</h1>
-            <select className='w-full outline-none border border-gray-300 rounded-md p-2 mt-2' onChange={handleAlertChange} value={chosenAlert}>
+            <select className='w-full outline-none border border-gray-300 rounded-md p-2 mt-2 bg-black' onChange={handleAlertChange} value={chosenAlert}>
                 {Object.entries(alerts).map(([key, alert]) => (
-                    <option key={key} value={key}>
+                    <option key={key} value={key} className='bg-black'>
                         {alert.name}
                     </option>
                 ))}
