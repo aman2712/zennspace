@@ -11,7 +11,6 @@ import { BsFullscreen } from "react-icons/bs";
 
 export default function Pomodoro() {
     const { theme } = useThemeContext();
-    const [showFullscreen, setShowFullscreen] = useState(false);
 
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
@@ -41,19 +40,10 @@ export default function Pomodoro() {
                 <Logo />
             </div>
 
-            {/* Fullscreen Icon Wrapper */}
-            <div 
-                className="absolute bottom-10 right-20 w-60 h-60"
-                onMouseEnter={() => setShowFullscreen(true)}
-                onMouseLeave={() => setShowFullscreen(false)}
-            >
-                {showFullscreen && (
-                    <BsFullscreen 
-                        className="cursor-pointer text-white text-2xl transition-transform transform hover:scale-110 absolute bottom-10 right-20"
-                        onClick={toggleFullscreen}
-                    />
-                )}
-            </div>
+            <BsFullscreen
+                className="cursor-pointer text-white text-2xl transition-transform transform hover:scale-110 absolute bottom-10 right-20"
+                onClick={toggleFullscreen}
+            />
 
             <Timer />
             <MusicPlayer />
