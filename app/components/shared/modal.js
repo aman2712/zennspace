@@ -1,8 +1,9 @@
 import { AiOutlineClose } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Modal({ children, isOpen, setIsOpen, onSave, onReset }) {
     const [isVisible, setIsVisible] = useState(false);
+    const modalRef = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
@@ -12,17 +13,27 @@ export default function Modal({ children, isOpen, setIsOpen, onSave, onReset }) 
         }
     }, [isOpen]);
 
+    // Close modal if clicking outside the modal content
+    const handleOutsideClick = (event) => {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setIsOpen(false);
+        }
+    };
+
     return (
         isVisible && (
             <div
                 className={`fixed inset-0 bg-gray-900/60 flex justify-center items-center z-50 transition-opacity duration-300 ${
                     isOpen ? "opacity-100" : "opacity-0"
                 }`}
+                onClick={handleOutsideClick}
             >
                 <div
+                    ref={modalRef}
                     className={`bg-black/50 backdrop-blur-md p-10 rounded-xl w-[38rem] shadow-2xl relative transition-all duration-300 transform ${
                         isOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-5"
                     }`}
+                    onClick={(e) => e.stopPropagation()} // Prevent click inside modal from triggering close
                 >
                     <button
                         onClick={() => setIsOpen(false)}
